@@ -1,0 +1,27 @@
+[
+  {
+    "id": "upload_1",
+    "account": "General",
+    "text": "Fact: The bank offers free online banking services to all account holders, including fund transfers, bill payments, and account statements."
+  },
+  {
+    "id": "upload_2",
+    "account": "General",
+    "text": "Fact: To reset your internet banking password, visit the nearest branch with your CNIC or call our helpline at 111-000-123."
+  },
+  {
+    "id": "upload_3",
+    "account": "General",
+    "text": "Fact: Lost or stolen debit cards can be blocked instantly through the mobile app or by calling the 24/7 helpline."
+  },
+  {
+    "id": "upload_4",
+    "account": "General",
+    "text": "Fact: The bank charges zero fee for inter-bank fund transfers (IBFT) up to Rs. 25,000 per month for all digital channels."
+  },
+  {
+    "id": "upload_5",
+    "account": "General",
+    "text": "Fact: A new savings account can be opened with a minimum deposit of Rs. 1,000 and a valid CNIC."
+  }
+]
