@@ -18,7 +18,7 @@ def main():
 
     print("Loading chunks...")
 
-    chunks = load_chunks("data/NWA_facts.json")
+    chunks = load_chunks("data/preprocessed_chunks.json")
 
     print("Preparing texts...")
 
