@@ -166,13 +166,25 @@ if not query.strip():
     st.stop()
 
 if ask_clicked:
-    with st.spinner("Searching and generating answer…"):
-        try:
-            answer, context_chunks = answer_query(query.strip())
-            st.markdown("### Answer")
-            st.markdown(answer)
-            with st.expander("View retrieved context"):
-                for i, c in enumerate(context_chunks, 1):
-                    st.text(c)
-        except Exception as e:
-            st.error(f"Error: {e}")
+    from app.services.guardrails.functions import validate_input, sanitize_input, validate_output
+
+    safe_query = sanitize_input(query.strip())
+    is_safe, refusal_msg = validate_input(safe_query)
+
+    if not is_safe:
+        st.warning(refusal_msg)
+    else:
+        with st.spinner("Searching and generating answer…"):
+            try:
+                answer, context_chunks = answer_query(safe_query)
+                output_ok, cleaned_answer = validate_output(answer)
+                st.markdown("### Answer")
+                if output_ok:
+                    st.markdown(cleaned_answer)
+                else:
+                    st.warning(cleaned_answer)
+                with st.expander("View retrieved context"):
+                    for i, c in enumerate(context_chunks, 1):
+                        st.text(c)
+            except Exception as e:
+                st.error(f"Error: {e}")
