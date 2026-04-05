@@ -1,6 +1,6 @@
 # Bank Customer Support Chatbot
 
-A **Retrieval-Augmented Generation (RAG)** chatbot for bank customer support. Users ask questions in natural language; the app retrieves relevant content from a vector store (Pinecone) and generates answers using a large language model (Hugging Face). The UI is built with **Streamlit** and all RAG logic runs in-process—no separate API server.
+A **Retrieval-Augmented Generation (RAG)** chatbot for bank customer support. Users ask questions in natural language; the app retrieves relevant content from a vector store (Pinecone) and generates answers using a large language model (Hugging Face). The UI is built with **Streamlit** and all RAG logic runs in-process no separate API server.
 
 ---
 
@@ -78,7 +78,7 @@ Create a `.env` file in the project root with:
 | `PINECONE_API_KEY` | Your Pinecone API key | Yes |
 | `HF_TOKEN` | Hugging Face token (embeddings + optional LLM) | Yes |
 | `HUGGINGFACE_API_KEY` | Hugging Face API key (used by LLM service) | Yes |
-| `LLM_MODEL_NAME` | Hugging Face chat model (e.g. `meta-llama/Llama-3.2-3B-Instruct`) | Yes |
+| `LLM_MODEL_NAME` | Hugging Face chat model (e.g. `meta-llama/Llama-3.2-1B-Instruct`) | Yes |
 
 Example `.env`:
 

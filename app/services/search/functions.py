@@ -2,10 +2,9 @@ import os
 
 from pinecone import Pinecone
 
-from app.services.resources import resources
 from app.services.embeddings.functions import generate_embeddings
 
-INDEX_NAME = "bank-customer-support"
+INDEX_NAME = "badar-index"
 
 pc = Pinecone(api_key=os.getenv('PINECONE_API_KEY'))
 index = pc.Index(INDEX_NAME)
