@@ -1,7 +1,8 @@
-from app.services.resources import resources
+from app.services.resources import get_resources
 import torch
 
 def generate_embeddings(chunks_text):
+    resources = get_resources()
     tokenizer = resources.tokenizer
     model = resources.embedding_model
 
@@ -20,6 +21,7 @@ def generate_embeddings(chunks_text):
     return embeddings.cpu().numpy()
 
 def upload_embeddings_to_pinecone(chunks, embeddings):
+    resources = get_resources()
     index = resources.index
     vectors = []
 
@@ -35,3 +37,9 @@ def upload_embeddings_to_pinecone(chunks, embeddings):
         })
 
     index.upsert(vectors=vectors)
+
+def ingest_documents(chunks):
+    chunk_texts = [chunk["text"] for chunk in chunks]
+    embeddings = generate_embeddings(chunk_texts)
+    upload_embeddings_to_pinecone(chunks, embeddings)
+    return len(chunks)
