@@ -1,7 +1,6 @@
 import os
 
 from huggingface_hub import InferenceClient
-from app.services.resources import resources
 
 client = InferenceClient(
     api_key=os.getenv('HUGGINGFACE_API_KEY'),
